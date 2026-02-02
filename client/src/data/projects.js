@@ -1,3 +1,5 @@
+import AirboardArticle from "../articles/AirBoard__A_Gesture_Controlled_Virtual_Keyboard_Interface.pdf"
+
 export const projects = [
   {
     id: "cloud-storage",
@@ -6,7 +8,9 @@ export const projects = [
       "Designed and implemented a personal cloud storage system using a desktop machine, enabling secure file access and sharing over a local network.",
     type: "Project",
     tags: ["Cloud Computing", "Networking", "Security"],
-    link: "https://github.com/your-username/cloud-storage"
+    links:{
+      publication: "https://www.researchgate.net/publication/371675917_Cloud_Storage_Service_using_Personal_Desktop_Computer"
+    } 
   },
   {
     id: "airboard",
@@ -15,7 +19,10 @@ export const projects = [
       "Developed a gesture-based virtual keyboard using computer vision techniques to enable touchless and real-time text input.",
     type: "Project",
     tags: ["Computer Vision", "HCI", "Python"],
-    link: "https://github.com/your-username/airboard"
+    links:{
+      project: "https://github.com/prathmesh-31-code/Airboard-A-Gesture-Based-Virtual-Keyboard",
+      publication: AirboardArticle
+    } 
   },
   {
     id: "ai-cloud-services",
@@ -24,15 +31,19 @@ export const projects = [
       "Research on the integration of AI and Cloud Computing, focusing on AI-as-a-Service models.",
     type: "Research",
     tags: ["AI", "Cloud", "Research"],
-    link: "https://ijscrcseit.com/your-paper-link"
+    links:{
+      publication: "https://www.researchgate.net/publication/397118260_Understanding_the_Basics_of_AI_Driven_Cloud_Services"
+    } 
   },
   {
     id: "nlp-to-sql",
     title: "Converting Human Text into Database Queries Using NLP",
     description:
       "Proposed a hybrid NLP approach using Logistic Regression and T5 models to convert natural language into database queries.",
-    type: "Research",
+    type: "Project",
     tags: ["NLP", "ML", "Databases"],
-    link: "https://drive.google.com/your-publication-proof"
+    links:{
+      publication: ".pdf"
+    } 
   }
 ];

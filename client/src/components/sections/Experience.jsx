@@ -44,14 +44,18 @@ const Experience = () => {
           </div>
 
           {item.certificate && (
-            <div className="mt-6">
-              <img
-                src={item.certificate}
-                alt={`${item.company} certificate`}
-                className="max-w-sm rounded-lg border"
-              />
-            </div>
-          )}
+            <div className="mt-5">
+                <a
+                  href={item.certificate}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 text-sm font-medium text-blue-600 hover:underline"
+                >
+                  View certificate →
+                </a>
+              </div>
+            )}
+
         </div>
       ))}
     </section>

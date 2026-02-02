@@ -1,4 +1,6 @@
 // src/data/experience.js
+import microcertCert from "../images/microcert-cloud-intern.jpg";
+import ediglobe from "../images/ediglobe-web-intern.jpg";
 
 export const experience = [
   {
@@ -9,7 +11,7 @@ export const experience = [
     description:
       "Gained foundational knowledge of Microsoft Azure (AZ-900), including core cloud concepts, services, and cloud economics.",
     skills: ["Microsoft Azure", "Cloud Computing", "AZ-900"],
-    certificate: "/certificates/microcert-cloud-intern.png"
+    certificate: microcertCert
   },
   {
     role: "Web Development Intern",
@@ -27,6 +29,6 @@ export const experience = [
       "MySQL",
       "MongoDB"
     ],
-    certificate: "/certificates/ediglobe-web-intern.png"
+    certificate: ediglobe
   }
 ];
