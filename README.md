@@ -72,3 +72,34 @@ src/
 ├── main.jsx
 ├── index.css
 └── App.css
+```
+
+## How to run the project?
+
+✅ **Prerequisites**
+
+Ensure you have the following installed:
+
+1.Node.js (v18 or later recommended)
+
+2.npm
+
+3.Git
+
+📥 **Step 1: Clone the Repository**
+git clone https://github.com/your-username/personal-portfolio.git
+cd personal-portfolio
+
+📦 **Step 2: Install Dependencies**
+npm install
+
+🚀 **Step 3: Start Development Server**
+npm run dev
+
+
+Open in your browser:
+
+http://localhost:5173
+
+
+The app will automatically reload when you make changes.
