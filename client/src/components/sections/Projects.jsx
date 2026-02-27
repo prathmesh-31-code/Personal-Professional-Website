@@ -1,110 +1,79 @@
-import React, { useState } from "react";
+import React from "react";
 import { projects } from "../../data/projects";
+import GitHubIcon from "@mui/icons-material/GitHub";
+import ArticleIcon from "@mui/icons-material/Article";
 
 function Projects() {
-  const [activeType, setActiveType] = useState("Project");
-
-  const filteredItems = projects.filter(
-    (item) => item.type === activeType
-  );
-
   return (
-    <section
-      id="projects"
-      className="mt-32 px-24 max-sm:px-5"
-    >
-      {/* INNER COLUMN — this is the key fix */}
-      <div className="max-w-3xl">
-        <h1 className="text-3xl font-serif text-gray-900 mb-8">
-          Projects & Research
+    <section className="mt-32">
+      {/* Heading */}
+      <div className="flex flex-col mb-12 gap-4">
+        <h1 className="text-4xl font-serif text-gray-900">
+          projects.
         </h1>
 
-        {/* Toggle */}
-        <div className="flex gap-6 mb-16">
-          {["Project", "Research"].map((type) => (
-            <button
-              key={type}
-              onClick={() => setActiveType(type)}
-              className={`text-sm font-medium pb-2 border-b-2 transition
-                ${
-                  activeType === type
-                    ? "border-gray-900 text-gray-900"
-                    : "border-transparent text-gray-500 hover:text-gray-900"
-                }`}
-            >
-              {type}
-            </button>
-          ))}
-        </div>
+        <p className="text-xl leading-relaxed font-serif text-gray-500">
+          here are some projects that i developed during my college years.
+        </p>
+      </div>
 
-        {/* List */}
-        <div className="space-y-16">
-          {filteredItems.map((item, index) => (
-            <div
-              key={index}
-              className="border-b border-slate-200 pb-10"
-            >
-              <div className="flex items-start justify-between gap-6">
-                <h3 className="text-xl font-semibold text-slate-900">
-                  {item.title}
-                </h3>
+      {/* Cards */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        {projects.map((project) => (
+          <div
+            key={project.id}
+            className="group bg-white/70 backdrop-blur-sm border border-slate-200 rounded-xl overflow-hidden transition duration-300 hover:bg-slate-100 hover:shadow-lg"
+          >
+            {/* Image */}
+            <div className="h-56 overflow-hidden bg-slate-100 border-b border-slate-200">
+              <img
+                src={project.image}
+                className="w-full h-full object-contain transition-transform duration-500 group-hover:scale-105"
+              />
+            </div>
 
-                <span
-                  className={`shrink-0 text-xs font-medium px-3 py-1 rounded-full
-                    ${
-                      item.type === "Research"
-                        ? "bg-emerald-50 text-emerald-700"
-                        : "bg-blue-50 text-blue-700"
-                    }`}
-                >
-                  {item.type}
-                </span>
-              </div>
+            {/* Content */}
+            <div className="p-6">
+              <h3 className="text-xl font-semibold text-gray-900">
+                {project.title}
+              </h3>
 
-              <p className="mt-4 text-slate-600 leading-relaxed">
-                {item.description}
+              <p className="mt-4 text-gray-600 leading-relaxed">
+                {project.description}
               </p>
 
-              <div className="mt-5 flex flex-wrap gap-2">
-                {item.tags.map((tag, i) => (
-                  <span
-                    key={i}
-                    className="text-xs bg-slate-100 text-slate-700 px-3 py-1 rounded-md"
-                  >
-                    {tag}
-                  </span>
-                ))}
+              {/* Links */}
+              <div className="mt-6 flex gap-6 items-center text-sm">
+                {project.links?.github &&
+                  project.links.github !== "" &&
+                  project.links.github !== "/" && (
+                    <a
+                      href={project.links.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-2 text-gray-700 hover:text-black transition"
+                    >
+                      <GitHubIcon fontSize="small" />
+                      GitHub
+                    </a>
+                  )}
+
+                {project.links?.article &&
+                  project.links.article !== "" && (
+                    <a
+                      href={project.links.article}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-2 text-gray-700 hover:text-black transition"
+                    >
+                      <ArticleIcon fontSize="small" />
+                      Article
+                    </a>
+                  )}
               </div>
-
-              {/* Dynamic links */}
-              {item.links && (
-                <div className="mt-5 flex flex-wrap gap-4">
-                  {item.links.project && (
-                    <a
-                      href={item.links.project}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-sm font-medium text-blue-600 hover:underline"
-                    >
-                      View Project →
-                    </a>
-                  )}
-
-                  {item.links.publication && (
-                    <a
-                      href={item.links.publication}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-sm font-medium text-blue-600 hover:underline"
-                    >
-                      View Publication →
-                    </a>
-                  )}
-                </div>
-              )}
             </div>
-          ))}
-        </div>
+          </div>
+        ))}
       </div>
     </section>
   );

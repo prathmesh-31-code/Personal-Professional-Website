@@ -3,16 +3,19 @@ import Navbar from "./components/Navbar";
 
 function App({ element }) {
   return (
-    <>
+    <div
+      className="
+        bg-slate-200
+      "
+    >
       <Navbar />
 
-      {/* Push content below fixed navbar */}
-      <main className="pt-20 min-h-screen">
+      <main className="pt-20">
         {element}
       </main>
 
       <Footer />
-    </>
+    </div>
   );
 }
 

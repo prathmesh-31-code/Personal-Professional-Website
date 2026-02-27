@@ -1,110 +1,59 @@
-import React, { useEffect, useRef, useState } from "react";
-import logo from "../images/PB-logo.png";
+import React, { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 
+const navItems = [
+  { name: "Home", path: "/" },
+  { name: "Posts", path: "/posts" },
+  { name: "Contact", path: "/contact" },
+];
+
 const Navbar = () => {
-  const navRef = useRef();
-  const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
+  const [hovered, setHovered] = useState(null);
 
-  const toggleMenu = () => setIsOpen(!isOpen);
+  const activeIndex = navItems.findIndex(
+    (item) => item.path === location.pathname
+  );
 
-  useEffect(() => {
-    const handleClickOutside = (e) => {
-      if (navRef.current && !navRef.current.contains(e.target)) {
-        setIsOpen(false);
-      }
-    };
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => document.removeEventListener("mousedown", handleClickOutside);
-  }, []);
+  const currentIndex =
+    hovered !== null ? hovered : activeIndex;
 
   return (
-    <header className="fixed top-0 left-0 w-full z-50 bg-white/70 backdrop-blur-md border-b border-zinc-200">
-      <nav
-        ref={navRef}
-        className="max-w-7xl mx-auto px-24 max-sm:px-5 py-3 flex items-center justify-between"
-      >
-        {/* Logo */}
-        <Link to="/" className="flex items-center gap-2">
-          <img src={logo} alt="PB Logo" className="w-10" />
-          <span className="font-serif text-lg font-semibold text-gray-900">
-            
-          </span>
-        </Link>
+    <div className="fixed top-6 left-1/2 -translate-x-1/2 z-50">
+      <div className="relative flex items-center rounded-full
+        bg-white/20 backdrop-blur-xl
+        border border-white/30
+        shadow-lg overflow-hidden">
 
-        {/* Desktop links */}
-        <ul className="hidden md:flex gap-8 text-sm text-gray-700">
-          {[
-            { name: "Home", path: "/" },
-            { name: "Contact", path: "/contact" },
-          ].map((item) => (
-            <li key={item.name}>
-              <Link
-                to={item.path}
-                className={`relative hover:text-black transition ${
-                  location.pathname === item.path
-                    ? "text-black font-medium"
-                    : ""
-                }`}
-              >
-                {item.name}
-                {location.pathname === item.path && (
-                  <span className="absolute -bottom-1 left-0 w-full h-[2px] bg-black rounded"></span>
-                )}
-              </Link>
-            </li>
-          ))}
-        </ul>
+        {/* Sliding Glass Background */}
+        <div
+          className="absolute h-full w-32 rounded-full
+          bg-white/90 backdrop-blur-md
+          transition-all duration-300 ease-out"
+          style={{
+            transform: `translateX(${currentIndex * 128}px)`
+          }}
+        />
 
-        {/* Mobile menu button */}
-        <button
-          onClick={toggleMenu}
-          className="md:hidden text-gray-800 focus:outline-none"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            className="h-7 w-7"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
+        {navItems.map((item, index) => (
+          <Link
+            key={item.name}
+            to={item.path}
+            onMouseEnter={() => setHovered(index)}
+            onMouseLeave={() => setHovered(null)}
+            className={`relative z-10 w-32 text-center px-6 py-3 text-sm font-medium
+              transition-colors duration-300
+              ${
+                location.pathname === item.path
+                  ? "text-black"
+                  : "text-gray-700 hover:text-black"
+              }`}
           >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d={
-                !isOpen
-                  ? "M4 6h16M4 12h16M4 18h16"
-                  : "M6 18L18 6M6 6l12 12"
-              }
-            />
-          </svg>
-        </button>
-
-        {/* Mobile dropdown */}
-        {isOpen && (
-          <div className="absolute top-full right-5 mt-3 w-40 bg-white rounded-xl shadow-lg border border-zinc-200 md:hidden">
-            <ul className="flex flex-col text-sm">
-              <Link
-                to="/"
-                onClick={() => setIsOpen(false)}
-                className="px-4 py-3 hover:bg-zinc-100"
-              >
-                Home
-              </Link>
-              <Link
-                to="/contact"
-                onClick={() => setIsOpen(false)}
-                className="px-4 py-3 hover:bg-zinc-100"
-              >
-                Contact
-              </Link>
-            </ul>
-          </div>
-        )}
-      </nav>
-    </header>
+            {item.name}
+          </Link>
+        ))}
+      </div>
+    </div>
   );
 };
 

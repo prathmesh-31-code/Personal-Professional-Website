@@ -5,6 +5,7 @@ import "./index.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Home from "./pages/Home.jsx";
 import Contact from "./pages/Contact.jsx";
+import Posts from "./pages/Posts.jsx";
 
 const router = createBrowserRouter([
   {
@@ -15,6 +16,10 @@ const router = createBrowserRouter([
     path: "/contact",
     element: <App element={<Contact />} />,
   },
+  {
+    path: "/posts",
+    element: <App element={<Posts/>}/>,
+  }
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
