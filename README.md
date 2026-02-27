@@ -1,92 +1,105 @@
+# Personal Portfolio & Research Website
 
-# Blog Website - Frontend with ReactJS, Vite & Tailwind CSS
+A modern, responsive personal portfolio website built with **React** and **Tailwind CSS**.  
+The site showcases my **projects, research publications, professional experience**, and serves as a foundation for a future **full-stack personal platform**.
 
- This is a modern and responsive blog website built with ReactJS, Vite, and Tailwind CSS. It boasts a user-friendly interface and features dynamic content loading from local JSON files.
+---
 
+## 🌐 Live Status
 
-## Demo
+🚧 **Currently under active development**
 
-https://github.com/pawantech12/personal-blog-website/assets/118673866/3c3a0d35-38c0-4a7f-9c68-e2fd15d32505
+- Frontend: ✅ Completed and functional
+- Backend: 🛠️ In progress
+- Deployment (AWS): 🛠️ In progress
 
-## Project Pages and Components:
+---
 
-### Multiple Pages:
-- Home: Displays featured posts and latest posts.
-- Tags: Filters posts by tags.
-- Authors: Displays posts by authors.
-- Archive: Lists posts chronologically.
-- Contact: Provides contact information.
-- Single Blog Post: Displays detailed content for each post.
+## ✨ Features
 
-### Modular Components:
-- archiveDropdown: Simplifies archive navigation.
-- featuredpost: Highlights prominent posts on the homepage.
-- featuredpostcard: Creates visually appealing cards for featured posts.
-- footer: Presents essential site information at the bottom.
-- navbar: Enables navigation between major pages.
-- latestpost: Showcases recent posts on the homepage.
-- latestpostcard: Designs attractive cards for latest posts.
-- subscribe: Offers a subscription form for users.
+- 👋 Clean hero & introduction section
+- 📂 **Projects & Research** section with toggle (Project / Research)
+- 🔗 Dynamic links per item (project repo, publication, or both)
+- 🧑‍💼 **Experience** section with skills and certificate links
+- 🎨 Minimal, academic-inspired design
+- 📱 Fully responsive (mobile-first)
+- ⚡ Fast build using Vite
 
+---
 
-## Frontend Stack
+## 🛠️ Tech Stack
 
-**ReactJS:** JavaScript library for building user interfaces.
+### Frontend
+- **React**
+- **React Router**
+- **Tailwind CSS**
+- **Material UI Icons**
+- **Vite**
 
-**Vite:** Build tool for optimizing development and production builds.
+### Backend (Planned)
+- Node.js
+- Express.js
+- REST APIs
+- Database (MongoDB / PostgreSQL)
 
-**Tailwind CSS:** Utility-first CSS framework for rapid styling.
+### Deployment (Planned)
+- AWS (S3 + CloudFront for frontend)
+- AWS Elastic Beanstalk / EC2 for backend
+- CI/CD with GitHub Actions
 
+---
 
-## Data Source:
-JSON file located in the data directory store post and author information.
+## 📁 Project Structure
 
-
-
-
-## Installation
-
-#### 1. Clone the Repository:
-
-```bash
-  git clone https://github.com/pawantech12/personal-blog-website.git
+```text
+src/
+├── components/
+│   ├── Navbar.jsx
+│   ├── Footer.jsx
+│   └── sections/
+│       ├── Projects.jsx
+│       ├── Experience.jsx
+│       └── Home.jsx
+│
+├── data/
+│   ├── projects.js
+│   └── experience.js
+│
+├── images/
+│   └── certificates, logos, assets
+│
+├── App.jsx
+├── main.jsx
+├── index.css
+└── App.css
 ```
 
-#### 2. Navigate to  Directory:
+## How to run the project?
 
-```bash
-  cd personal-blog-website-master
-```
+✅ **Prerequisites**
 
-#### 3. Install Dependencies:
+Ensure you have the following installed:
 
-```bash
-  npm install or npm i
-  (or `yarn install` if you prefer Yarn)
-```
+1.Node.js (v18 or later recommended)
 
-#### 4. Start the development server:
+2.npm
 
-```bash
-  npm run dev
-``` (or `yarn dev`)
-This will usually start the server on http://localhost:5173 by default.
-```
-## Customization:
+3.Git
 
-- The website uses Tailwind CSS for styling. You can customize the styles by modifying the tailwind.config.js file or adding custom CSS in the src/styles directory.
-- You can extend the components or create new ones to enhance the website's functionality as needed.
-- Update the JSON data in the data directory with your actual blog post and author information.
+📥 **Step 1: Clone the Repository**
+git clone https://github.com/your-username/personal-portfolio.git
+cd personal-portfolio
+
+📦 **Step 2: Install Dependencies**
+npm install
+
+🚀 **Step 3: Start Development Server**
+npm run dev
 
 
-## Deployment
+Open in your browser:
 
-#### 1. Build the production-ready website:
+http://localhost:5173
 
-```bash
-  npm run build (or `yarn build`)
-``` 
 
-#### 2. Deploy website:
-
-Deploy the generated static files to a hosting platform that supports frontend applications (e.g., Netlify, Vercel, GitHub Pages).
+The app will automatically reload when you make changes.
