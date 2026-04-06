@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
-
+import Subscribe from "../components/Subscribe";
 
 const Contact = () => {
   return (
@@ -112,7 +112,7 @@ const Contact = () => {
         </div>
       </section>
 
-      
+      <Subscribe/>
 </main>
   );
 };

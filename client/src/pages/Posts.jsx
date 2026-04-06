@@ -1,6 +1,5 @@
 import React from "react";
 import posts from "../data/posts";
-import Subscribe from "../components/Subscribe";
 
 const Posts = () => {
 
@@ -65,7 +64,7 @@ const Posts = () => {
 
       </div>
 
-      <Subscribe />
+      
     </section>
   );
 };
